@@ -12,7 +12,7 @@ gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -23,11 +23,16 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'database_cleaner-active_record'
+  gem 'rspec-json_expectations'
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :development do
@@ -39,3 +44,19 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# Permissões
+gem 'cancancan'
+# A Gem to add Follow functionality for models
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+# Votable ActiveRecord for Rails
+gem 'acts_as_votable'
+# Intelligent search made easy with Rails and Elasticsearch
+gem 'searchkick'
+# ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner
+gem 'active_model_serializers'
+# Seamless JWT authentication for Rails API
+gem 'knock'
+# Pagination library for Rails
+gem 'will_paginate', '~> 3.1.0'
