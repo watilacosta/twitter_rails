@@ -8,7 +8,3 @@ module Api
     end
   end
 end
-
-# {
-#   "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODY0ODcyMTMsInN1YiI6MX0._eORhop2OoAhCxur_cpljmt_ghhsKgZkNu-83cM1V_Q"
-# }
