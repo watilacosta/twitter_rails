@@ -6,9 +6,9 @@ module Api
     class TweetsController < Api::V1::ApiController
       before_action :set_tweet, except: %i[create index]
       before_action :authenticate_user, except: %i[show index]
-      before_action :set_current_user
+      before_action { current_user }
 
-      load_and_authorize_resource except: %i[index show create]
+      load_and_authorize_resource except: %i[index show]
 
       def index
         user    = User.find(params[:user_id])
@@ -35,7 +35,7 @@ module Api
       end
 
       def update
-        if @tweet.update(tweet_params.merge(user: current_user))
+        if @tweet.update(tweet_params)
           render json: @tweet
         else
           render json: { errors: @tweet.errors.full_messages }, status: :unprocessable_entity
@@ -50,11 +50,6 @@ module Api
 
       def tweet_params
         params.require(:tweet).permit(:body, :tweet_original_id)
-      end
-
-      def set_current_user
-        # @current_user = current_user.present? ? current_user : nil
-        @current_user = current_user || nil
       end
     end
   end

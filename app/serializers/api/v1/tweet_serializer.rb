@@ -11,6 +11,7 @@ module Ap1
       def tweet_original
         options = { each_serializer: Api::V1::TweetSerializer }
         return unless object.tweet_original
+
         ActiveModelSerializers::SerializableResource.new(object.tweet_original, options)
       end
 
@@ -28,7 +29,8 @@ module Ap1
       end
 
       def liked
-        object.liked_by @current_user
+        # object.liked_by @current_user
+        current_user.present? ? current_user.liked?(object) : false
       end
     end
   end

@@ -16,7 +16,8 @@ module Api
       end
 
       def destroy
-        current_user.dislikes @tweet
+        # current_user.dislikes @tweet
+        @tweet.unliked_by current_user
       end
 
       private
