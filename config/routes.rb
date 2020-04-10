@@ -5,13 +5,19 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'user_token' => 'user_token#create'
 
-      resources :tweets, except: %i[new edit]
-      resources :likes, only: %i[create destroy]
-      resources :follows, only: %i[create destroy]
+      resources :tweets, except: %i[new edit] do
+        member do
+          post   'like', to: 'likes#create'
+          delete 'like', to: 'likes#destroy'
+        end
+      end
+
       resources :users, except: %i[new edit] do
         member do
           get 'following'
           get 'followers'
+          post 'follow',   to: 'follows#create'
+          delete 'follow', to: 'follows#destroy'
         end
 
         get 'current', on: :collection

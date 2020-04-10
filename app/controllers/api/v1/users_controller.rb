@@ -2,6 +2,7 @@
 
 module Api
   module V1
+    # Users api
     class UsersController < Api::V1::ApiController
       before_action :authenticate_user, only: %i[current update destroy]
       before_action :set_user, only: %i[show destroy update following followers]
