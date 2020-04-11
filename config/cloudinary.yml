@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dksigmyur
+  api_key: '921522829196396'
+  api_secret: hnR1u7MoPLT8ldPpNY0AT5GTsUI
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dksigmyur
+  api_key: '921522829196396'
+  api_secret: hnR1u7MoPLT8ldPpNY0AT5GTsUI
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dksigmyur
+  api_key: '921522829196396'
+  api_secret: hnR1u7MoPLT8ldPpNY0AT5GTsUI
+  enhance_image_tag: true
+  static_file_support: false
