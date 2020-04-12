@@ -10,4 +10,16 @@ class Tweet < ApplicationRecord
   validates_presence_of :user
 
   acts_as_votable # pode receber likes
+
+  searchkick
+
+  # Busca apenas pelo body
+  def search_index
+    { body: body }
+  end
+
+  # Deve indexar no elastisearch?
+  def should_index?
+    !tweet_original.present?
+  end
 end

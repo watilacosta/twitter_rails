@@ -17,6 +17,13 @@ class User < ApplicationRecord
   acts_as_followable # pode ser seguido
   acts_as_follower   # pode seguir
 
+  searchkick
+
+  # Busca por esses parametros
+  def search_data
+    { name: name, email: email }
+  end
+
   def timeline
     timeline = tweets.map { |tweet| tweet }
     all_following.each do |user|

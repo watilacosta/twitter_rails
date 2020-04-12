@@ -3,8 +3,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get 'timeline', to: 'timeline#index'
-      post 'user_token' => 'user_token#create'
+      post 'user_token',  to: 'user_token#create'
+      get 'timeline',     to: 'timeline#index'
+      get 'search',       to: 'search#index'
+      get 'autocomplete', to: 'search#autocomplete'
 
       resources :tweets, except: %i[new edit] do
         member do
