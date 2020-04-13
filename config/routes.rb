@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
   namespace :api do
     namespace :v1 do
       post 'user_token',  to: 'user_token#create'
       get 'timeline',     to: 'timeline#index'
       get 'search',       to: 'search#index'
       get 'autocomplete', to: 'search#autocomplete'
+      get 'trending',     to: 'trending#index'
 
       resources :tweets, except: %i[new edit] do
         member do

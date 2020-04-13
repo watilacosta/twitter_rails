@@ -38,5 +38,7 @@ gem 'carrierwave-base64'
 gem 'cloudinary'
 gem 'knock'
 gem 'searchkick'
+gem 'sidekiq'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'whenever', require: false
 gem 'will_paginate', '~> 3.1.0'
