@@ -2,6 +2,6 @@
 
 set :environment, 'development'
 
-every 1.minute do
+every 1.hour do
   runner 'UpdateTrendingsJob.perform'
 end
